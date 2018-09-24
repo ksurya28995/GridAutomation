@@ -7,7 +7,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,11 +29,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class commonUtilities {
 	static WebDriver driver;
-
-	public WebDriver getDriver() {
+	Map<String, String> arrData;
+	
+	public WebDriver getDriver() throws Exception {
+		arrData = readCsvData("gridConfigs.csv");
 		DesiredCapabilities capability = new DesiredCapabilities("chrome", "", Platform.WIN10);
-		driver = new RemoteWebDriver(capability);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver = new RemoteWebDriver(new URL("http://10.222.246.197:33802/wd/hub"), capability);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
 

@@ -5,7 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import ElementActions.phpTravelLogInOutActions;
+import ElementActions.phpTravelActions;
 import commonUtilities.PropertyManager;
 import commonUtilities.commonUtilities;
 
@@ -22,8 +22,8 @@ public class AppTest {
 
 	@Test
 	public void appValidate() throws Throwable {
-		phpTravelLogInOutActions phpObj = new phpTravelLogInOutActions(driver);
-		
+		phpTravelActions phpObj = new phpTravelActions(driver);
+		phpObj.searchHotel();
 	}
 
 	@AfterClass
