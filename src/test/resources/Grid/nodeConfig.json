@@ -1,0 +1,25 @@
+{
+    "register":  true,
+    "timeout":  1800,
+    "maxSession":  5,
+    "downPollingLimit":  2,
+    "proxy":  "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "debug":  false,
+    "enablePassThrough":  true,
+    "unregisterIfStillDownAfter":  60000,
+    "capabilities":  [
+                         {
+                             "browserName":  "chrome",
+                             "maxInstances":  5,
+                             "seleniumProtocol":  "WebDriver"
+                         }
+                     ],
+    "registerCycle":  5000,
+    "hub":  "http://10.222.246.197:4444",
+    "browserTimeout":  0,
+    "cleanUpCycle":  5000,
+    "role":  "node",
+    "nodeStatusCheckTimeout":  5000,
+    "nodePolling":  5000,
+    "port":  "38080"
+}

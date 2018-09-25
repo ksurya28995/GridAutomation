@@ -31,15 +31,16 @@ public class commonUtilities {
 	static WebDriver driver;
 	Map<String, String> arrData;
 	
-	public WebDriver getDriver() throws Exception {
+	public WebDriver getDriver(int nodeNo) throws Exception {
 		arrData = readCsvData("gridConfigs.csv");
 		DesiredCapabilities capability = new DesiredCapabilities("chrome", "", Platform.WIN10);
-		driver = new RemoteWebDriver(new URL("http://10.222.246.197:33802/wd/hub"), capability);
+		driver = new RemoteWebDriver(new URL(arrData.get("URL Node "+nodeNo)), capability);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
 
+	
 	URI filePath;
 
 	public Map<String, String> readCsvData(String csvName) throws Exception {
@@ -168,7 +169,7 @@ public class commonUtilities {
 
 	public void setTextBox(WebElement elem, String value) throws InterruptedException {
 		waitForElement(elem);
-		elem.clear();
+		//elem.clear();
 		elem.sendKeys(value);
 		Thread.sleep(1000);
 	}
