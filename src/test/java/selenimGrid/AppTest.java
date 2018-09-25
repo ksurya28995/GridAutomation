@@ -12,9 +12,10 @@ import commonUtilities.commonUtilities;
 public class AppTest {
 	private static WebDriver driver = null;
 	private static commonUtilities commObj = null;
-
+	
 	@BeforeClass
 	public static void init() throws Throwable {
+		
 		commObj = new commonUtilities();
 		driver = commObj.getDriver(2);
 		commObj.openURL(PropertyManager.getPropertyVal("phptravelurl"));
