@@ -1,1 +1,20 @@
 ###cmd Console###
+
+
+Windows IP Configuration
+
+
+PPP adapter _Common_NLBT_GLOBAL - nlbt.pvgroup.be:
+
+   Connection-specific DNS Suffix  . : pvsys.pv.be
+   IPv4 Address. . . . . . . . . . . : 172.17.29.135
+   Subnet Mask . . . . . . . . . . . : 255.255.255.255
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . : dir.svc.accenture.com
+   Link-local IPv6 Address . . . . . : fe80::b5cf:ef57:909f:11cf%13
+   IPv4 Address. . . . . . . . . . . : 10.222.246.197
+   Subnet Mask . . . . . . . . . . . : 255.255.255.224
+   Default Gateway . . . . . . . . . : 10.222.246.194

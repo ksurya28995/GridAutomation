@@ -5,18 +5,31 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.util.Map;
 
 public class RunCommandsInCmd {
 
+	private static final int Map = 0;
+	private static final int String = 0;
 	private static commonUtilities commObj = new commonUtilities();
 
 	public static void main(String args[]) throws InterruptedException {
-		String strtHubServerCmd = "java -jar selenium-server-standalone-3.14.0.jar -role hub -hubConfig hubConfig.json";
-		startHubServer(strtHubServerCmd);
-		System.out.println("Selenium Hub Server Started...");
-		commObj.threadsleep(10000);
-		endHubServer();
-		
+		/*
+		 * String strtHubServerCmd =
+		 * "java -jar selenium-server-standalone-3.14.0.jar -role hub -hubConfig hubConfig.json"
+		 * ; String strtNodeServerCmd =
+		 * "java -jar selenium-server-standalone-3.14.0.jar -role node -nodeConfig nodeConfig.json"
+		 * ;
+		 * 
+		 * int node1 = 1;
+		 * 
+		 * startHubServer(strtHubServerCmd); commObj.threadsleep(5000);
+		 * 
+		 * startNodeServer(strtNodeServerCmd, node1); commObj.threadsleep(5000);
+		 * 
+		 * endHubServer();
+		 */
+		runCmdMain("ipconfig");
 	}
 
 	// to run below methd -> runCmdMain("java -version");
@@ -47,29 +60,56 @@ public class RunCommandsInCmd {
 		}
 	}
 
-	public static void startHubServer(String strtHubServerCmd) {
+	public static void startNodeServer(String strtNodeServerCmd, int nodeNo) {
 		try {
+			String[] nodePorts = { "not in use", "38081", "38082", "38083", "38054", "38085" };
+			JsonFileHandler.setJsonData("port", nodePorts[nodeNo]);
 			String strtCmd = "cmd /c start cmd.exe ";
 			String serverFilePath = "src/test/resources/Grid";
-			String naviCmdToGridPath = "cd "+serverFilePath;
-			String taskCommand = "/K \""+naviCmdToGridPath+" && "+ strtHubServerCmd+"\"";
-			
-			Runtime.getRuntime().exec(strtCmd+taskCommand);
+			String naviCmdToGridPath = "cd " + serverFilePath;
+			String taskCommand = "/K \"" + naviCmdToGridPath + " && " + strtNodeServerCmd + "\"";
+
+			Runtime.getRuntime().exec(strtCmd + taskCommand);
 			commObj.threadsleep(3000);
-			
+			System.out.println("Selenium Node Server Started...");
+
+			String gridConfigCSV = "gridConfigs.csv";
+			Map<String, String> arrData = commObj.readCsvData(gridConfigCSV);
+			String hubURL =arrData.get("URL Node "+nodeNo);
+			hubURL = hubURL.split(":")[0]+":"+hubURL.split(":")[1]+":"+nodePorts[nodeNo]+"/wd/hub";
+			commObj.setCsvData(gridConfigCSV, "URL Node " + nodeNo, hubURL);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
 		}
 	}
-	
+
+	public static void startHubServer(String strtHubServerCmd) {
+		try {
+			String strtCmd = "cmd /c start cmd.exe ";
+			String serverFilePath = "src/test/resources/Grid";
+			String naviCmdToGridPath = "cd " + serverFilePath;
+			String taskCommand = "/K \"" + naviCmdToGridPath + " && " + strtHubServerCmd + "\"";
+
+			Runtime.getRuntime().exec(strtCmd + taskCommand);
+			commObj.threadsleep(3000);
+			System.out.println("Selenium Hub Server Started...");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
 	public static void endHubServer() {
 		try {
-			// to list down all the cmd tasks opened -> tasklist  /FI "imagename eq cmd.exe" /V
+			// to list down all the cmd tasks opened -> tasklist /FI "imagename eq cmd.exe"
+			// /V
 			// to kill all imageName{xxxx} executions -> taskkill /im XXXX.exe
-			
+
 			Runtime.getRuntime().exec("cmd /c start cmd.exe /K \"taskkill  /im cmd.exe\"");
-			System.out.println("Selenium Hub Server Ended");
+			System.out.println("Selenium Servers Ended");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(-1);

@@ -1,2 +1,2 @@
 URL Node 1;URL Node 2;URL Node 3
-http://10.222.246.195:38080/wd/hub;http://10.222.246.197:38080/wd/hub;http://10.222.246.197:30805/wd/hub
+http://localhost:38081/wd/hub;http://localhost:38082/wd/hub;http://localhost:30805/wd/hub

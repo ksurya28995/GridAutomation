@@ -1,25 +1,25 @@
 {
-    "register":  true,
-    "timeout":  1800,
-    "maxSession":  5,
-    "downPollingLimit":  2,
-    "proxy":  "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
-    "debug":  false,
-    "enablePassThrough":  true,
-    "unregisterIfStillDownAfter":  60000,
-    "capabilities":  [
-                         {
-                             "browserName":  "chrome",
-                             "maxInstances":  5,
-                             "seleniumProtocol":  "WebDriver"
-                         }
-                     ],
-    "registerCycle":  5000,
-    "hub":  "http://10.222.246.197:4444",
-    "browserTimeout":  0,
-    "cleanUpCycle":  5000,
-    "role":  "node",
-    "nodeStatusCheckTimeout":  5000,
-    "nodePolling":  5000,
-    "port":  "38080"
+    "unregisterIfStillDownAfter": 60000,
+    "debug": false,
+    "capabilities": [
+        {
+            "seleniumProtocol": "WebDriver",
+            "browserName": "chrome",
+            "maxInstances": 5
+        }
+    ],
+    "role": "node",
+    "nodeStatusCheckTimeout": 5000,
+    "downPollingLimit": 2,
+    "timeout": 1800,
+    "nodePolling": 5000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "cleanUpCycle": 5000,
+    "hub": "http://localhost:4444",
+    "port": "38081",
+    "browserTimeout": 0,
+    "enablePassThrough": true,
+    "maxSession": 5,
+    "registerCycle": 5000,
+    "register": true
 }

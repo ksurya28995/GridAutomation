@@ -10,15 +10,17 @@ import commonUtilities.PropertyManager;
 import commonUtilities.RunCommandsInCmd;
 import commonUtilities.commonUtilities;
 
-public class gridTest {
+public class gridTestNode1 {
 	private static WebDriver driver = null;
 	private static commonUtilities commObj = null;
 	
 	@BeforeClass
 	public static void init() throws Throwable {
+		int nodeNumber = 1;
 		commObj = new commonUtilities();
 		RunCommandsInCmd.startHubServer(PropertyManager.getPropertyVal("starthubserver"));
-		driver = commObj.getDriver(2);
+		RunCommandsInCmd.startNodeServer(PropertyManager.getPropertyVal("startnodeserver"), nodeNumber);
+		driver = commObj.getDriver(nodeNumber);
 		commObj.openURL(PropertyManager.getPropertyVal("phptravelurl"));
 	}
 
@@ -30,6 +32,7 @@ public class gridTest {
 
 	@AfterClass
 	public static void terminate() {
+		RunCommandsInCmd.endHubServer();
 		commObj.quitDriver();
 	}
 

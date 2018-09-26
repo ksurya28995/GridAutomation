@@ -55,7 +55,6 @@ public class commonUtilities {
 		uri = (URI) (new File("src/test/resources/inputCSVFiles/" + csvName).exists()
 				? new File("src/test/resources/inputCSVFiles/" + csvName)
 				: null).toURI();
-		System.out.println("Initialized filepath==" + uri);
 		if (uri == null)
 			assert uri != null : "Input CSV file missing";
 		return uri;
