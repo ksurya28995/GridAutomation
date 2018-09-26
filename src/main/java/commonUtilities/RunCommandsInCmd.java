@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
-public class RunCommandInCmd {
+public class RunCommandsInCmd {
 
 	private static commonUtilities commObj = new commonUtilities();
 

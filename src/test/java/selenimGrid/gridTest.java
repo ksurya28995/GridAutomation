@@ -7,16 +7,17 @@ import org.openqa.selenium.WebDriver;
 
 import ElementActions.phpTravelActions;
 import commonUtilities.PropertyManager;
+import commonUtilities.RunCommandsInCmd;
 import commonUtilities.commonUtilities;
 
-public class AppTest {
+public class gridTest {
 	private static WebDriver driver = null;
 	private static commonUtilities commObj = null;
 	
 	@BeforeClass
 	public static void init() throws Throwable {
-		
 		commObj = new commonUtilities();
+		RunCommandsInCmd.startHubServer(PropertyManager.getPropertyVal("starthubserver"));
 		driver = commObj.getDriver(2);
 		commObj.openURL(PropertyManager.getPropertyVal("phptravelurl"));
 	}
