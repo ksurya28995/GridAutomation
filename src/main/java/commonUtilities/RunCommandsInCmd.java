@@ -14,22 +14,15 @@ public class RunCommandsInCmd {
 	private static commonUtilities commObj = new commonUtilities();
 
 	public static void main(String args[]) throws InterruptedException {
-		/*
-		 * String strtHubServerCmd =
-		 * "java -jar selenium-server-standalone-3.14.0.jar -role hub -hubConfig hubConfig.json"
-		 * ; String strtNodeServerCmd =
-		 * "java -jar selenium-server-standalone-3.14.0.jar -role node -nodeConfig nodeConfig.json"
-		 * ;
-		 * 
-		 * int node1 = 1;
-		 * 
-		 * startHubServer(strtHubServerCmd); commObj.threadsleep(5000);
-		 * 
-		 * startNodeServer(strtNodeServerCmd, node1); commObj.threadsleep(5000);
-		 * 
-		 * endHubServer();
-		 */
-		runCmdMain("ipconfig");
+		/*String strtHubServerCmd = "java -jar selenium-server-standalone-3.14.0.jar -role hub -hubConfig hubConfig.json";
+		String strtNodeServerCmd = "java -jar selenium-server-standalone-3.14.0.jar -role node -nodeConfig nodeConfig.json";
+		int node1 = 1;
+		startHubServer(strtHubServerCmd);
+		commObj.threadsleep(5000);
+		startNodeServer(strtNodeServerCmd, node1);
+		commObj.threadsleep(5000);
+		endHubServer();
+		runCmdMain("ipconfig");*/
 	}
 
 	// to run below methd -> runCmdMain("java -version");
@@ -75,8 +68,8 @@ public class RunCommandsInCmd {
 
 			String gridConfigCSV = "gridConfigs.csv";
 			Map<String, String> arrData = commObj.readCsvData(gridConfigCSV);
-			String hubURL =arrData.get("URL Node "+nodeNo);
-			hubURL = hubURL.split(":")[0]+":"+hubURL.split(":")[1]+":"+nodePorts[nodeNo]+"/wd/hub";
+			String hubURL = arrData.get("URL Node " + nodeNo);
+			hubURL = hubURL.split(":")[0] + ":" + hubURL.split(":")[1] + ":" + nodePorts[nodeNo] + "/wd/hub";
 			commObj.setCsvData(gridConfigCSV, "URL Node " + nodeNo, hubURL);
 
 		} catch (Exception e) {
