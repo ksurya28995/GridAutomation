@@ -6,7 +6,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.Map;
-
+/**
+ * Class is used to run the open and run the cmd commands to sart the hub and nodes
+ * 
+ * @author surya.k.kumaresan
+ */
 public class RunCommandsInCmd {
 
 	private static final int Map = 0;
@@ -25,7 +29,7 @@ public class RunCommandsInCmd {
 		runCmdMain("ipconfig");*/
 	}
 
-	// to run below methd -> runCmdMain("java -version");
+	// to run this methd -> runCmdMain("java -version");
 	public static void runCmdMain(String cmdCommand) {
 		try {
 			String errorLogLine = null;
@@ -53,6 +57,13 @@ public class RunCommandsInCmd {
 		}
 	}
 
+	/**
+	 * Method is used to start the node
+	 * 
+	 * @param strtNodeServerCmd node starting cmd, node number on which the node starts
+	 * 
+	 * @author surya.k.kumaresan
+	 */
 	public static void startNodeServer(String strtNodeServerCmd, int nodeNo) {
 		try {
 			String[] nodePorts = { "not in use", "38081", "38082", "38083", "38054", "38085" };
@@ -78,6 +89,13 @@ public class RunCommandsInCmd {
 		}
 	}
 
+	/**
+	 * Method is used to start the hub
+	 * 
+	 * @param strtHubServerCmd hub starting cmd
+	 * 
+	 * @author surya.k.kumaresan
+	 */
 	public static void startHubServer(String strtHubServerCmd) {
 		try {
 			String strtCmd = "cmd /c start cmd.exe ";

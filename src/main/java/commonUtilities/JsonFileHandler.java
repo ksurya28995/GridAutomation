@@ -8,14 +8,26 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import flexjson.JSONSerializer;
-
+/**
+ * Class is used to read the json file
+ * 
+ * @author surya.k.kumaresan
+ */
 public class JsonFileHandler {
 
 	public static void main(String arg[]) {
 		setJsonData("port","38080");
 	}
 
-	//this method writes the content in a single line
+	/**
+	 * Method is used to update the json file with the new value
+	 * 
+	 * @param head key to which the value needed to be changed
+	 * 
+	 * @param value to be changed
+	 * 
+	 * @author surya.k.kumaresan
+	 */
 	public static void setJsonData(String head, String value) {
 		JSONParser jsonparse = new JSONParser();
 		JSONObject jsonObj = new JSONObject();
