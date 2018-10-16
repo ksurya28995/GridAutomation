@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 /**
  * Class is used to hold the elements of the php page
  * 
- * @author surya.k.kumaresan
+ * @author SuryaRay
  */
 public class phpTravelObjects {
 	

@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Class is used to run the open and run the cmd commands to sart the hub and nodes
  * 
- * @author surya.k.kumaresan
+ * @author SuryaRay
  */
 public class RunCommandsInCmd {
 
@@ -62,7 +62,7 @@ public class RunCommandsInCmd {
 	 * 
 	 * @param strtNodeServerCmd node starting cmd, node number on which the node starts
 	 * 
-	 * @author surya.k.kumaresan
+	 * @author SuryaRay
 	 */
 	public static void startNodeServer(String strtNodeServerCmd, int nodeNo) {
 		try {
@@ -94,7 +94,7 @@ public class RunCommandsInCmd {
 	 * 
 	 * @param strtHubServerCmd hub starting cmd
 	 * 
-	 * @author surya.k.kumaresan
+	 * @author SuryaRay
 	 */
 	public static void startHubServer(String strtHubServerCmd) {
 		try {

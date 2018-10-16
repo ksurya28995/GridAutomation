@@ -11,7 +11,7 @@ import flexjson.JSONSerializer;
 /**
  * Class is used to read the json file
  * 
- * @author surya.k.kumaresan
+ * @author SuryaRay
  */
 public class JsonFileHandler {
 
@@ -26,7 +26,7 @@ public class JsonFileHandler {
 	 * 
 	 * @param value to be changed
 	 * 
-	 * @author surya.k.kumaresan
+	 * @author SuryaRay
 	 */
 	public static void setJsonData(String head, String value) {
 		JSONParser jsonparse = new JSONParser();

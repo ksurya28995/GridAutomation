@@ -13,7 +13,7 @@ import commonUtilities.commonUtilities;
 /**
  * Class is used to do validations on the site
  * 
- * @author surya.k.kumaresan
+ * @author SuryaRay
  */
 public class phpTravelActions extends phpTravelObjects {
 
@@ -26,7 +26,7 @@ public class phpTravelActions extends phpTravelObjects {
 	 * 
 	 * @param webdriver driver of the UI
 	 * 
-	 * @author surya.k.kumaresan
+	 * @author SuryaRay
 	 */
 	public phpTravelActions(WebDriver driverObj) throws Exception {
 		driver = driverObj;
@@ -37,7 +37,7 @@ public class phpTravelActions extends phpTravelObjects {
 	/**
 	 * Method is used to do the validation 
 	 * 
-	 * @author surya.k.kumaresan
+	 * @author SuryaRay
 	 */
 	public void searchHotel() throws Throwable {
 		arrData = commObj.readCsvData("phpInputs.csv");
